@@ -1,0 +1,18 @@
+﻿  Spiral.cpp
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(137,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(138,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(160,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(162,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(165,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(176,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(181,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(182,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(290,17): warning C4804: '%': unsafe use of type 'bool' in operation
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(378,1): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message : see declaration of 'fopen'
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(315,13): warning C4102: 'loop_start': unreferenced label
+C:\Users\ppkmv\source\repos\Spiral\Spiral\Spiral.cpp(426,8): warning C4101: 'spiral': unreferenced local variable

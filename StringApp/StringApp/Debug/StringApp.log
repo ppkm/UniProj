@@ -1,0 +1,3 @@
+﻿  StringApp.cpp
+C:\Users\ppkmv\source\repos\StringApp\StringApp\StringApp.cpp(18,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  StringApp.vcxproj -> C:\Users\ppkmv\source\repos\StringApp\Debug\StringApp.exe

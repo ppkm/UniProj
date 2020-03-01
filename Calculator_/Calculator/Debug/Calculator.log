@@ -1,0 +1,3 @@
+﻿  Calculator.cpp
+C:\Users\ppkmv\source\repos\Calculator_\Calculator\Calculator.cpp(304): warning C4715: 'inputBase': not all control paths return a value
+  Calculator.vcxproj -> C:\Users\ppkmv\source\repos\Calculator_\Debug\Calculator.exe

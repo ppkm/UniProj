@@ -1,0 +1,4 @@
+﻿  AntonProject.cpp
+C:\Users\ppkmv\source\repos\AntonProject\AntonProject\AntonProject.cpp(70,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ppkmv\source\repos\AntonProject\AntonProject\AntonProject.cpp(294): warning C4715: 'is_prime': not all control paths return a value
+  AntonProject.vcxproj -> C:\Users\ppkmv\source\repos\AntonProject\Debug\AntonProject.exe
