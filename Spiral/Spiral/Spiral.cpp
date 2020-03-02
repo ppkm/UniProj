@@ -1,27 +1,22 @@
-#include <iostream>;
-#include <conio.h>;
-#include <fstream>;
-#include <istream>;
+#include <iostream>
+#include <conio.h>
+#include <fstream>
+#include <istream>
 
 using namespace std;
 
 struct SaveFile {
 
 public:
-	int width = -1;
-	int height = -1;
-
-	int spiral[10][10];
+	int char_count = 1;
+	char * save_seq;
 };
 
 void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile* s_file);
 void StartSaveProcedure(SaveFile* s_file);
 void LoadSaveFile();
 
-int main() {
-
-	int width = -1;
-	int height = -1;
+void InputW_H(int& width, int& height) {
 
 	while (width <= 0 || width > 11) {
 
@@ -34,104 +29,139 @@ int main() {
 		cout << "Enter height: " << endl;
 		cin >> height;
 	}
+}
+void PrintChooseMenu(int width, int height, int& arrowLevel, int& InOutMode, int& torsionMode) {
 
-	SaveFile s_file;
-	s_file.width = width;
-	s_file.height = height;
+	cout << "Width = " << width << " Height = " << height << endl;
+	if (arrowLevel == 1) {
+		cout << "Inside out  | Clockwise <-" << endl;
+		InOutMode = 1;
+		torsionMode = 1;
+	}
+	else {
+		cout << "Inside out  | Clockwise" << endl;
+	}
+	if (arrowLevel == 2) {
+		cout << "Inside out  | Counterclockwise <-" << endl;
+		InOutMode = 1;
+		torsionMode = -1;
+	}
+	else {
+		cout << "Inside out  | Counterclockwise" << endl;
+	}
+	if (arrowLevel == 3) {
+		cout << "Outside in  | Clockwise <-" << endl;
+		InOutMode = 2;
+		torsionMode = 1;
+	}
+	else {
+		cout << "Outside in  | Clockwise" << endl;
+	}
+	if (arrowLevel == 4) {
+		cout << "Outsinde in | Counterclockwise <-" << endl;
+		InOutMode = 2;
+		torsionMode = -1;
+	}
+	else {
+		cout << "Outsinde in | Counterclockwise" << endl;
+	}
+	if (arrowLevel == 5) {
+		cout << "Load save <-\n";
+	}
+	else {
+		cout << "Load save\n";
+	}
 
-	int InOutMode = 1;//1 2
-	int torsionMode = 1;//1 -1
+	cout << "\nTo save this pattern press [S]\n";
+}
+void ControlInput(int& arrowLevel, SaveFile& s_file, char& ch) {
+
+	char L = _getch();
+	if (L == 224)
+		L = _getch();
+
+	switch (L)
+	{
+	case 72:
+		if (arrowLevel != 1)
+			arrowLevel--;
+		break;
+	case 80:
+		if (arrowLevel != 5)
+			arrowLevel++;
+		break;
+
+	case 'S':
+		StartSaveProcedure(&s_file);
+		break;
+
+	case 13:
+		if (arrowLevel == 5) {
+			LoadSaveFile();
+			system("pause");
+		}
+		else {
+			ch = 'e';
+		}
+		break;
+	}
+}
+
+int main() {
+
+	int width = -1;
+	int height = -1;
+	SaveFile s_file = SaveFile();
+	s_file.save_seq = new char[1000];
+	s_file.save_seq[0] = '\0';
+	int InOutMode = 1;
+	int torsionMode = 1;
 	int arrowLevel = 1;
+
+	InputW_H(width, height);
 
 	char ch = 't';
 
 	do {
 		system("cls");
 
-		cout << "Width = " << width << " Height = " << height << endl;
-		if (arrowLevel == 1) {
-			cout << "Inside out  | Clockwise <-" << endl;
-			InOutMode = 1;
-			torsionMode = 1;
-		}
-		else {
-			cout << "Inside out  | Clockwise" << endl;
-		}
-		if (arrowLevel == 2) {
-			cout << "Inside out  | Counterclockwise <-" << endl;
-			InOutMode = 1;
-			torsionMode = -1;
-		}
-		else {
-			cout << "Inside out  | Counterclockwise" << endl;
-		}
-		if (arrowLevel == 3) {
-			cout << "Outside in  | Clockwise <-" << endl;
-			InOutMode = 2;
-			torsionMode = 1;
-		}
-		else {
-			cout << "Outside in  | Clockwise" << endl;
-		}
-		if (arrowLevel == 4) {
-			cout << "Outsinde in | Counterclockwise <-" << endl;
-			InOutMode = 2;
-			torsionMode = -1;
-		}
-		else {
-			cout << "Outsinde in | Counterclockwise" << endl;
-		}
-		if (arrowLevel == 5) {
-			cout << "Load save <-\n";
-		}
-		else {
-			cout << "Load save\n";
-		}
-
-		cout << "\nTo save this pattern press [S]\n";
-
+		PrintChooseMenu(width, height, arrowLevel, InOutMode, torsionMode);
 		drawSpiral(width, height, InOutMode, torsionMode, &s_file);
-
-		char L = _getch();
-		if (L == 224) 
-			L = _getch();
-
-		switch (L)
-		{
-			case 72:
-				if (arrowLevel != 1)
-					arrowLevel--;
-			break;
-			case 80:
-				if (arrowLevel != 5)
-					arrowLevel++;
-				break;
-
-			case 'S':
-				StartSaveProcedure(&s_file);
-				break;
-
-			case 13:
-				if (arrowLevel == 5) {
-					LoadSaveFile();
-					system("pause");
-				}
-				else {
-					ch = 'e';
-				}
-				break;
-		}
+		ControlInput(arrowLevel, s_file, ch);
 	} while (ch != 'e');
 
 	return 0;
 }
 
-void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile* s_file) {
+void int_to_char(int n, char* c) {
 
-	int** spiral = new int* [width];
 
-	for (int i = 0; i < width; i++)
-		spiral[i] = new int[height];
+	char nc = ' ';
+	char n_str[3]{ '\0', '\0', '\0' };
+
+	int i = 0;
+	while (n != 0) {
+
+		nc = (n % 10) + 48;
+		n /= 10;
+
+		n_str[i] = nc;
+		i++;
+	}
+
+	char f_str[4] = { '\0', '\0', '\0', '\0', };
+	int j = 0;
+	for (int i = 2; i >= 0; i--) {
+		if (n_str[i] == '\0')
+			continue;
+		f_str[j] = n_str[i];
+		j++;
+	}
+
+	strcat(c, f_str);
+}
+
+void CalculateSpiral(int width, int height, int InOutMode, int torsionMode, int** spiral) {
 
 	double side = height;
 	int x = ceil(side / 2 - 1);
@@ -158,7 +188,8 @@ void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile*
 
 			if (torsionMode == 1) {
 				x = ceil(side / 2 - 1);
-			} else {
+			}
+			else {
 				x = width - ceil(side / 2 - 1) - 1;
 				directionX = -1;
 			}
@@ -175,7 +206,8 @@ void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile*
 
 				x = ceil(side / 2 - 1);
 				y = height - 1 - x;
-			} else {
+			}
+			else {
 
 				directionX = -1;
 				x = width - ceil(side / 2 - 1) - 1;
@@ -292,15 +324,44 @@ void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile*
 
 		break;
 	}
+}
 
-	// print
+void PrintSpiral(int width, int height, int** spiral, SaveFile* s_file) {
+
+	s_file->save_seq = new char[1000];
+	s_file->save_seq[0] = '\0';
+	s_file->char_count = 1;
 	for (int i = 0; i < height; i++) {
 		for (int j = 0; j < width; j++) {
 			printf("%5d", spiral[j][i]);
-			s_file->spiral[j][i] = spiral[j][i];
+
+			if (spiral[j][i] > 9)
+				strcat(s_file->save_seq, "   ");
+			else
+				strcat(s_file->save_seq, "    ");
+
+			int_to_char(spiral[j][i], s_file->save_seq);
+			s_file->char_count += 5;
+
 		}
 		cout << endl;
+		strcat(s_file->save_seq, "\n");
+		s_file->char_count++;
 	}
+
+	strcat(s_file->save_seq, "\0");
+	s_file->char_count++;
+}
+
+void drawSpiral(int width, int height, int InOutMode, int torsionMode, SaveFile* s_file) {
+
+	int** spiral = new int* [width];
+
+	for (int i = 0; i < width; i++)
+		spiral[i] = new int[height];
+
+	CalculateSpiral(width, height, InOutMode, torsionMode, spiral);
+	PrintSpiral(width, height, spiral, s_file);
 }
 
 void StartSaveProcedure(SaveFile* s_file) {
@@ -347,7 +408,6 @@ void StartSaveProcedure(SaveFile* s_file) {
 			loop_exit:
 			continue;
 		}
-		
 
 		strcpy_s(ch, buffer);
 		char fName[167] = "Save Files/";
@@ -364,29 +424,15 @@ void StartSaveProcedure(SaveFile* s_file) {
 			continue;
 		}
 
-		/*ofstream FileO;
-		FileO.open(fName);
-		FileO << s_file->width << " " << s_file->height << " ";
+		FILE* save_file = fopen(fName, "w+");
 
-		for (int i = 0; i < s_file->height; i++) {
-			for (int j = 0; j < s_file->width; j++) {
-				FileO << s_file->spiral[j][i] << " ";
-			}
-		}*/
-
-		FILE** f;
-		fopen_s(f, fName, "wb");
-
-		for (int i = 0; i < s_file->height; i++) {
-			for (int j = 0; j < s_file->width; j++) {
-				fwrite_s(s_file->spiral[j], 4, 1, f);
-				//FileO << s_file->spiral[j][i] << " ";
-			}
+		if (save_file != NULL) {
+			fwrite(s_file->save_seq, sizeof(char), s_file->char_count, save_file);
+			fclose(save_file);
 		}
-
-		fclose(f);
-
-		//FileO.close();
+		else {
+			cout << "\nSave error. Cannot open file.";
+		}
 
 		system("pause");
 		
@@ -399,6 +445,8 @@ void StartSaveProcedure(SaveFile* s_file) {
 void LoadSaveFile() {
 
 	char ch[153] = "testName";
+
+	cout << "\nTo exit type [/exit]\n";
 
 	const char ESN[] = "\nEnter save name: ";
 	cout << ESN;
@@ -413,35 +461,26 @@ void LoadSaveFile() {
 		strcat_s(fName, ch);
 		strcat_s(fName, ".txt");
 
-		ifstream FileI;
-		FileI.open(fName);
-
 		if (buffer[0] == '\0')
 			continue;
 
-		if (FileI.is_open()) {
-
-
-			int width, height;
-			int spiral[10][10];
-
-			FileI >> width;
-			FileI >> height;
-
-			for (int i = 0; i < height; i++) {
-				for (int j = 0; j < width; j++) {
-					int n = -1;
-					FileI >> n;
-					printf("%5d", n);
-				}
-				cout << endl;
-			}
-
-
-			FileI.close();
+		if (!strcmp(ch, "/exit"))
 			return;
-		}
-		else {
+
+		FILE* save_file_in = fopen(fName, "rb");
+
+		if (save_file_in != NULL) {
+
+			while (1)
+			{
+				char c = fgetc(save_file_in);
+				if (c == EOF)
+					break;
+				else
+					printf("%c", c);
+			}
+			return;
+		} else {
 
 			cout << "Save file with such name does not exist.";
 			cout << ESN;
