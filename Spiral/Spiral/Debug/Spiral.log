@@ -1,12 +1,12 @@
 ﻿  Spiral.cpp
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(167,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(168,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(190,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(193,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(196,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(207,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(213,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(214,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(322,17): warning C4804: '%': unsafe use of type 'bool' in operation
-C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Spiral\Spiral.cpp(376,13): warning C4102: 'loop_start': unreferenced label
-  Spiral.vcxproj -> C:\Users\ppkmv\OneDrive\Документы\GitHub\UniProj\Spiral\Debug\Spiral.exe
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(167,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(168,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(190,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(193,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(196,12): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(207,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(213,36): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(214,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(322,17): warning C4804: '%': unsafe use of type 'bool' in operation
+C:\Users\ppkmv\source\UniProj\Spiral\Spiral\Spiral.cpp(376,13): warning C4102: 'loop_start': unreferenced label
+  Spiral.vcxproj -> C:\Users\ppkmv\source\UniProj\Spiral\Debug\Spiral.exe
