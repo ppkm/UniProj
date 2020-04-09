@@ -1,4 +1,5 @@
 ﻿  Velolist.cpp
-C:\Users\ppkmv\source\UniProj\Velolist\Velolist\Velolist.cpp(121,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\ppkmv\source\UniProj\Velolist\Velolist\Velolist.cpp(168,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+C:\Users\ppkmv\source\UniProj\Velolist\Velolist\Velolist.cpp(285,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Velolist\Velolist\Velolist.cpp(293,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ppkmv\source\UniProj\Velolist\Velolist\Velolist.cpp(475,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
   Velolist.vcxproj -> C:\Users\ppkmv\source\UniProj\Velolist\Debug\Velolist.exe
