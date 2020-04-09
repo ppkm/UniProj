@@ -1,0 +1,3 @@
+﻿  BiVelolist.cpp
+C:\Users\ppkmv\source\repos\BiVelolist\BiVelolist\BiVelolist.cpp(324,15): warning C4102: 'loop_start': unreferenced label
+  BiVelolist.vcxproj -> C:\Users\ppkmv\source\repos\BiVelolist\Debug\BiVelolist.exe
