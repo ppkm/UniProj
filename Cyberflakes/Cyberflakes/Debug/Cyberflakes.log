@@ -1,0 +1,3 @@
+﻿  Cyberflakes.cpp
+C:\Users\ppkmv\source\UniProj\Cyberflakes\Cyberflakes\Cyberflakes.cpp(379,15): warning C4102: 'loop_start': unreferenced label
+  Cyberflakes.vcxproj -> C:\Users\ppkmv\source\UniProj\Cyberflakes\Debug\Cyberflakes.exe
